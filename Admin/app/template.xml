@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1"
+    name="app"
+    minApi="7"
+    minBuildApi="14"
+    description="">
+
+    <category value="MyTemplate" />
+    <formfactor value="Mobile" />
+
+    <!-- input data -->
+    <parameter
+        id="activityName"
+        name="Activity Name"
+        type="string"
+		constraints="class|unique|nonempty"
+        default="MyActivity"
+        help="要创建的类的名称" />
+
+    <parameter
+        id="packageName"
+        name="Package Name"
+        type="string"
+        default=""
+        help="创建的类的包名" />
+	<!-- 新增加一个输出参数，控制是否需要创建布局文件 -->
+    <parameter
+        id="generateLayout"
+        name="Generate Layout File"
+        type="boolean"
+        default="true"
+        help="If true, a layout file will be generated" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+		constraints="layout|unique|nonempty"
+        default="activity_my"
+        help="要生成的布局文件的名称" />
+
+    <!-- 128x128 thumbnails relative to com.puke.template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_cover.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
